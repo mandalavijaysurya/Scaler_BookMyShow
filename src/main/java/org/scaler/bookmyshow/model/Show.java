@@ -2,6 +2,7 @@ package org.scaler.bookmyshow.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.web.servlet.ModelAndView;
@@ -9,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * @author: Vijaysurya Mandala
@@ -24,6 +26,7 @@ public class Show extends BaseModel {
     private Movie movie;
     @ManyToOne
     private Auditorium  auditorium;
+    @OneToMany
     private List<ShowSeat> showSeats;
 
 }

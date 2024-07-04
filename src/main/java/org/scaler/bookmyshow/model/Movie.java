@@ -3,7 +3,7 @@ package org.scaler.bookmyshow.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.scaler.bookmyshow.model.constants.AuditoriumFeature;
+import org.scaler.bookmyshow.model.constants.MovieFeature;
 
 import java.util.List;
 
@@ -14,14 +14,12 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-public class Auditorium extends BaseModel{
+public class Movie extends BaseModel{
     private String name;
-    private int capacity;
-    @OneToMany
-    private List<Show> shows;
-    @OneToMany
-    private List<Seat> seats;
+    private String description;
+    @ManyToMany
+    private List<Actor> actors;
     @ElementCollection
     @Enumerated(EnumType.STRING)
-    private List<AuditoriumFeature> auditoriumFeatures;
+    private List<MovieFeature> movieFeatures;
 }
